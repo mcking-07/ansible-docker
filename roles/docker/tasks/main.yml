@@ -1,0 +1,39 @@
+---
+- name: add docker apt-key
+  apt_key:
+    url: https://download.docker.com/linux/ubuntu/gpg
+    state: present
+
+- name: add docker apt-repo
+  apt_repository:
+    repo: deb https://download.docker.com/linux/ubuntu bionic stable
+    state: present
+
+- name: install docker-ce
+  apt:
+    name: docker-ce
+    state: present
+    update_cache: yes
+
+- name: install docker-ce-cli
+  apt:
+    name: docker-ce-cli
+    state: present
+    update_cache: yes
+
+- name: install containerd.io
+  apt:
+    name: containerd.io
+    state: present
+    update_cache: yes
+
+- name: enable service docker
+  systemd:
+    name: docker
+    enabled: yes
+    daemon_reload: yes
+
+- name: start and ensure docker is running
+  systemd:
+    name: docker
+    state: started

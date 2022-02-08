@@ -1,0 +1,49 @@
+---
+- name: install apt-transport-https
+  apt:
+    name: apt-transport-https
+    state: present
+    update_cache: yes
+
+- name: install ca-certificates
+  apt:
+    name: ca-certificates
+    state: present
+    update_cache: yes
+
+- name: install curl
+  apt:
+    name: curl
+    state: present
+    update_cache: yes
+
+- name: install gnupg-agent
+  apt:
+    name: gnupg-agent
+    state: present
+    update_cache: yes
+
+- name: install software-properties-common
+  apt:
+    name: software-properties-common
+    state: present
+    update_cache: yes
+
+- name: install python3-pip
+  apt:
+    name: python3-pip
+    state: present
+    update_cache: yes
+
+- name: install python3-setuptools
+  apt:
+    name: python3-setuptools
+    state: present
+    update_cache: yes
+
+- name: install virtualenv
+  apt:
+    name: virtualenv
+    state: present
+    update_cache: yes
+

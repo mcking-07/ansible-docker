@@ -1,0 +1,9 @@
+---
+- name: install docker on any server
+  hosts: localhost
+  roles:
+    - pre-requisites
+    - docker
+    - docker-image
+      
+

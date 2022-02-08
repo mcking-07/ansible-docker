@@ -1,0 +1,21 @@
+---
+- name: install docker module for python
+  pip:
+    name: docker
+
+- name: pull the docker image
+  docker_image:
+    name: "server"
+    source: pull
+
+- name: create default containers
+  docker_container:
+    name: "docker_container"
+    image: "server"
+    ports:
+      - "8080:8080"
+    env_file: vars.env 
+    env:               
+      ENV_DIRECT_1: ".env variable DIRECT_1"
+      ENV_DIRECT_2: ".env variable DIRECT_2"
+    state: started
